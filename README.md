@@ -1,91 +1,144 @@
-# THE-STALKER
-sniffs and sensors object within the range of the ultrasonic sensor with a hint of twinkle-twinkle musical note
-const int trigPin = 9;
-const int echoPin = 10;
-const int LED = 11;
-const int buzzer = 13;
-long duration;
-int distance;
-int safetyDistance;
-//int buzzer = 9;  // Connect buzzer to pin 9
+# THE STALKER 👀  
 
-// Define musical notes
-#define NOTE_C4  262
-#define NOTE_D4  294
-#define NOTE_E4  330
-#define NOTE_F4  349
-#define NOTE_G4  392
-#define NOTE_A4  440
-#define NOTE_B4  494
-#define NOTE_C5  523
+### Object Detection System with Twinkle Twinkle Melody  
 
- //Melody and note durations
-int melody[] = {
-  NOTE_C4, NOTE_C4, NOTE_G4, NOTE_G4, NOTE_A4, NOTE_A4, NOTE_G4,
-  NOTE_F4, NOTE_F4, NOTE_E4, NOTE_E4, NOTE_D4, NOTE_D4, NOTE_C4
-};
-int noteDurations[] = {
-  500, 500, 500, 500, 500, 500, 1000,
-  500, 500, 500, 500, 500, 500, 1000
-};
+**THE STALKER** is an ultrasonic object detection system that **"stalks"** its surroundings and triggers an alert when an object is detected within a **10cm range**. Upon detection, the system **plays the ‘Twinkle Twinkle’ melody** as a response.  
 
-void setup()
-{
-    pinMode(buzzer, OUTPUT);
-    pinMode(LED, OUTPUT);
-    pinMode(trigPin, OUTPUT);
-    pinMode(echoPin, INPUT);
-    Serial.begin(9600);
-   for (int i = 0; i < 14; i++) {
-    tone(buzzer, melody[i]);  // Play note
-    delay(noteDurations[i]);  // Duration of note
-    noTone(buzzer);           // Stop sound before next note
-    delay(50);                // Short pause
-  }
+---
 
-}
+## 🚀 Features  
+- **Ultrasonic Object Detection**: Uses an **HC-SR04** sensor to measure distance.  
+- **Musical Alert**: Plays **Twinkle Twinkle** when an object is within range.  
+- **Arduino-Based**: Programmed using Arduino IDE for real-time detection.  
+- **Hands-on Learning**: Explores sensor interfacing, circuit design, and debugging.  
+
+---
+
+## 🔧 Components Used  
+✔ **Ultrasonic Sensor (HC-SR04)** – Measures distance to objects.  
+✔ **Arduino (Uno/Nano/etc.)** – Processes sensor data and controls output.  
+✔ **Buzzer/Speaker** – Plays the musical note.  
+✔ **Resistors & Jumper Wires** – For circuit connections.  
+✔ **Power Source (Battery/USB)** – Powers the system.  
+
+---
+
+## 🛠 How It Works  
+1. The **HC-SR04 ultrasonic sensor** continuously scans for nearby objects.  
+2. If an object is detected **within 10cm**, the Arduino triggers the **buzzer**.  
+3. The buzzer plays the **Twinkle Twinkle melody** as a response.  
+4. If the object moves out of range, the system resets and continues monitoring.  
+
+---
+
+## ⚠ Challenges Faced  
+- **COM5 Error in Arduino** – Took time to troubleshoot connectivity issues.  
+- **Wiring & Connection Errors** – Debugging loose or incorrect connections.  
+- **Code Logic Adjustments** – Tweaked and tested to ensure accurate detection.  
+
+Despite these hurdles, **THE STALKER is now fully functional!** 🚀  
+
+---
+
+## 💻 Code Structure  
+- `stalker.ino` → Main Arduino code for sensor detection and buzzer melody.  
+- `twinkle_twinkle.h` → Melody sequence for Twinkle Twinkle tune.  
+- `README.md` → Project documentation.  
+
+---
+
+## 🔌 Installation & Usage  
+1. Clone the repository:  
+   ```sh
+   git clone https://github.com/yourusername/THE-STALKER.git
 
 
-void loop()
-{
-dos();//
-delay(100);
-}
-void dos()
-{
-    digitalWrite(trigPin, LOW);
-    delayMicroseconds(2);
 
-    digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(trigPin, LOW);
 
-    duration = pulseIn(echoPin, HIGH);
 
-    distance = duration * 0.034 / 2;
 
-    safetyDistance = distance;
-    if (safetyDistance <= 10)
-    {
-        //digitalWrite(buzzer, HIGH);
-        digitalWrite(LED, HIGH);
-        playAlertTone();
-    }
-    else
-    {
-        //digitalWrite(buzzer, LOW);
-        digitalWrite(LED, LOW);
-        noTone(buzzer);
-    }
-    
 
-    Serial.print("Distance: ");
-    Serial.println(distance);
-}
-void playAlertTone() {
-    tone(buzzer, 1000);  // 1kHz warning sound
-    delay(50);
-    noTone(buzzer);
-    delay(50);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
